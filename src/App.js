@@ -1,5 +1,5 @@
 import './App.css';
-import Picker from './Picker';
+import Picker from './Components/Picker';
 const BASE_ALPHABET = [
   'A',
   'B',
