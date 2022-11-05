@@ -1,4 +1,6 @@
+import { useState, useRef } from 'react';
 import './App.css';
+import { ReactPropTypes } from 'react';
 import Picker from './Components/Picker';
 const BASE_ALPHABET = [
   'A',
@@ -27,16 +29,28 @@ const BASE_ALPHABET = [
   'Y',
   'Z',
 ]
+
 function App() {
+  //const [speed, setSpeed] = useState(199)
+  const speed = useRef()
+  
+  function handleChange(event) {
+    //setSpeed(event.target.value)
+    speed.current = event.target.value
+
+  }
+
   return (
     <>
-      <Picker style={style} letters={BASE_ALPHABET}/>
+      <label for='speed'>Speed: </label>
+      <input type='number' id='speed' onChange={handleChange} value='199'></input>
+      <Picker style={style} letters={BASE_ALPHABET} speedProp={speed.current}/>
     </>
   );
 }
 const style = {
   fontSize: '42px',
-
-
 }
+
+
 export default App;

@@ -6,7 +6,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: #1e574d;
+  background-color: #3e4553;
+}
+
+button {
+  padding: 0.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-size: 2rem;
+  color: #a0a7b1;
+  margin-top: 2rem;
+  background-color: #2a2d33;
+  border: none;
+  border-radius: 2rem;
+
 }
 
 code {

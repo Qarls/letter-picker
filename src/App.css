@@ -2,6 +2,26 @@
   text-align: center;
 }
 
+label {
+  font-size: 1.5rem;
+  color: rgb(146, 158, 168);
+  align-self: center;
+}
+input {
+  background-color: #282c34;
+  border-radius: 2.5rem;
+  border: none;
+  font-size: 1.5rem;
+  color: #a0a7b1;
+  padding: 0.8rem;
+  padding-left: 1rem;
+  padding-right: 2rem;
+  text-justify: center;
+  text-align: center;
+  max-width: 22vw;
+  margin-top: 2rem;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
