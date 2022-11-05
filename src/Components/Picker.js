@@ -10,7 +10,9 @@ const Picker = ({style, letters, speedProp}) => {
     return 0
   });  
   const speed = useRef()
+
   speed.current = speedProp
+
   const nextLetter = () => {
     counter++
     if (counter >= letters.length) {
