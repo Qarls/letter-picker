@@ -1,13 +1,14 @@
 import React, {useState, } from 'react'
 import Letter from './Letter'
 let intervalId;
-let counter = 0;
+let elementIndex = 0;
 
 const Picker = ({style, letters}) => {
   const [isRunning, toggleRunning] = useState(true);
-  const [currentLetter, pickLetter] = useState(() => {
+  const [currentElement, setCurrentElement] = useState(() => {
     return 0
   });  
+
   const [speed, setSpeed] = useState(199)
 
   function handleChange(event) {
@@ -15,12 +16,12 @@ const Picker = ({style, letters}) => {
   }
 
   const nextLetter = () => {
-    counter++
-    if (counter >= letters.length) {
-      counter = 0 
+    elementIndex++
+    if (elementIndex >= letters.length) {
+      elementIndex = 0 
     }
-    pickLetter(counter)
-    return counter
+    setCurrentElement(elementIndex)
+    return elementIndex
   }
 
   function handleRunClick() {
@@ -37,12 +38,9 @@ const Picker = ({style, letters}) => {
       <label for='speed'>Speed: </label>
       <input type='number' id='speed' onChange={handleChange} ></input>
       <button onClick={handleRunClick}>{isRunning ? 'Start' : 'Stop'}</button>
-      <Letter currentLetter={currentLetter} letters={letters} />
+      <Letter currentElement={currentElement} letters={letters} />
     </div>
   )
 }
 
-Picker.defaultProps = {
-  speedProp: 199
-}
 export default Picker

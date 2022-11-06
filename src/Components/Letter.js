@@ -1,9 +1,9 @@
 import React, {} from 'react'
 import './Letter.css';
 
-const Letter = ({letters, currentLetter}) => {
+const Letter = ({letters, currentElement}) => {
 return( 
-    <p>{letters[currentLetter]}</p>
+    <p>{letters[currentElement]}</p>
   )
 }
 
