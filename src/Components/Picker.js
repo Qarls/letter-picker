@@ -1,17 +1,18 @@
-import React, {useState, useRef } from 'react'
+import React, {useState, } from 'react'
 import Letter from './Letter'
-import ReactPropTypes from 'react'
 let intervalId;
 let counter = 0;
 
-const Picker = ({style, letters, speedProp}) => {
+const Picker = ({style, letters}) => {
   const [isRunning, toggleRunning] = useState(true);
   const [currentLetter, pickLetter] = useState(() => {
     return 0
   });  
-  const speed = useRef()
+  const [speed, setSpeed] = useState(199)
 
-  speed.current = speedProp
+  function handleChange(event) {
+    setSpeed(event.target.value)
+  }
 
   const nextLetter = () => {
     counter++
@@ -25,7 +26,7 @@ const Picker = ({style, letters, speedProp}) => {
   function handleRunClick() {
     toggleRunning(!isRunning)
     if (isRunning) {
-      intervalId = setInterval(nextLetter, speed.current)    
+      intervalId = setInterval(nextLetter, speed)    
     }
     else clearInterval(intervalId)
     return nextLetter()
@@ -33,8 +34,10 @@ const Picker = ({style, letters, speedProp}) => {
 
   return (
     <div style={style}>
-        <button onClick={handleRunClick}>{isRunning ? 'Start' : 'Stop'}</button>
-        <Letter currentLetter={currentLetter} letters={letters} />
+      <label for='speed'>Speed: </label>
+      <input type='number' id='speed' onChange={handleChange} ></input>
+      <button onClick={handleRunClick}>{isRunning ? 'Start' : 'Stop'}</button>
+      <Letter currentLetter={currentLetter} letters={letters} />
     </div>
   )
 }
