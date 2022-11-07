@@ -1,5 +1,7 @@
 import React, {useState, } from 'react'
 import Letter from './Letter'
+import Counter from './Counter'
+import './Picker.css'
 let intervalId;
 let elementIndex = 0;
 
@@ -20,7 +22,7 @@ const Picker = ({style, elementArray, arrayLen}) => {
   }
 
   function checkAvailable(index) {
-    if (index) return true;
+    if (!index) return true;
     return false;
   }
 
@@ -30,7 +32,7 @@ const Picker = ({style, elementArray, arrayLen}) => {
       elementIndex = 0 
     }
     elementIndex++
-    if (checkAvailable(elementArray[elementIndex][1])) {
+    if (checkAvailable(elementArray[elementIndex].used)) {
       setCurrentElement(elementIndex)
       return elementIndex
     }
@@ -47,9 +49,9 @@ const Picker = ({style, elementArray, arrayLen}) => {
     else {
       fetch(currentElement) 
         .then(clearInterval(intervalId))
-      if (checkAvailable(elementIndex)) {
-        updateUsedElements(prevElements => [...prevElements, elementArray[elementIndex][0]])
-        elementArray[elementIndex][1] = false;
+      if (checkAvailable(elementIndex.text)) {
+        updateUsedElements(prevElements => [...prevElements, elementArray[elementIndex].text])
+        elementArray[elementIndex].used = true;
         console.log(usedElements)
       }
   }
@@ -57,11 +59,12 @@ const Picker = ({style, elementArray, arrayLen}) => {
 
   return (
     <div style={style}>
-      <label htmlFor='speed'>Speed: </label>
-      <input type='number' id='speed' onChange={handleChange} ></input>
       <button onClick={handleRunClick} className={isRunning ? 'startbutton' : 'stopbutton'}>{isRunning ? 'Start' : 'Stop'}</button>
       <Letter currentElement={currentElement - 1} elementArray={elementArray} />
-      <span>{usedElements}</span>
+      <label htmlFor='speed'>Speed: </label>
+      <input type='number' id='speed' onChange={handleChange} placeholder='199'></input>
+      <p className='used-letters'>{usedElements}</p>
+      <div className='counter'>Elements remaining: <Counter usedElements={usedElements} arrayLen={arrayLen}/></div>
     </div>
   )
 }

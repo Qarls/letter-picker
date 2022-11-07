@@ -1,8 +1,8 @@
 import './App.css';
 import Picker from './Components/Picker';
 
-const BASE_ALPHABET = {
-  alphabet: [
+const BASE_ALPHABET = 
+   [
   '',
   'A',
   'B',
@@ -29,14 +29,14 @@ const BASE_ALPHABET = {
   'X',
   'Y',
   'Z',
-]}
+]
 
 function App() {
 
 
-const elementArray = BASE_ALPHABET.alphabet.map((element) => {
+const elementArray = BASE_ALPHABET.map((element) => {
   console.log(element)
-  return [element, true]
+  return {text: element, used: false}
 })
 const arrayLen = elementArray.length
   return (

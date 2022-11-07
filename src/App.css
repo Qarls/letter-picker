@@ -3,16 +3,19 @@
 }
 
 label {
-  font-size: 1.5rem;
-  color: rgb(146, 158, 168);
+  color: slategray;
   align-self: center;
+  font-weight: 200;
+  font-size: 0.9rem;
+
+
 }
 input {
-  background-color: #282c34;
+  background-color: slategray;
   border-radius: 2.5rem;
   font-size: 1.5rem;
-  color: #a0a7b1;
-  padding: 0.8rem;
+  color: #404246;
+  padding: 0.2rem;
   padding-left: 1rem;
   padding-right: 1rem;
   text-justify: center;
@@ -21,12 +24,16 @@ input {
   margin-top: 2rem;
   margin-right: 2rem;
   border-width: 0.1rem;
-  border-color: whitesmoke;
+  border-color: slategrey;
   cursor: pointer;
   
   
+  
 }
-
+input::placeholder {
+  color: rgb(87, 93, 97);
+  font-weight: 200;
+}
 button.startbutton {
   border-width: 0.1rem;
   border-color: mediumseagreen;
@@ -52,6 +59,9 @@ input::-webkit-inner-spin-button {
   }
 }
 
+.counter {
+  margin-top: 1rem;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
