@@ -10,18 +10,37 @@ label {
 input {
   background-color: #282c34;
   border-radius: 2.5rem;
-  border: none;
   font-size: 1.5rem;
   color: #a0a7b1;
   padding: 0.8rem;
   padding-left: 1rem;
-  padding-right: 2rem;
+  padding-right: 1rem;
   text-justify: center;
   text-align: center;
-  max-width: 22vw;
+  max-width: 6rem;
   margin-top: 2rem;
+  margin-right: 2rem;
+  border-width: 0.1rem;
+  border-color: whitesmoke;
+  cursor: pointer;
+  
+  
 }
 
+button.startbutton {
+  border-width: 0.1rem;
+  border-color: mediumseagreen;
+}
+
+button.stopbutton {
+  border-width: 0.1rem;
+  border-color: crimson;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

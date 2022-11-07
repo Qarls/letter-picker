@@ -17,8 +17,8 @@ button {
   color: #a0a7b1;
   margin-top: 2rem;
   background-color: #2a2d33;
-  border: none;
   border-radius: 2rem;
+  cursor: pointer;
 
 }
 

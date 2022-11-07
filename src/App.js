@@ -33,9 +33,14 @@ const BASE_ALPHABET = {
 function App() {
 
 
+const elementArray = BASE_ALPHABET.alphabet.map((element) => {
+  console.log(element)
+  return [element, true]
+})
+const arrayLen = elementArray.length
   return (
     <>
-      <Picker style={style} letters={BASE_ALPHABET.alphabet} />
+      <Picker style={style} elementArray={elementArray} arrayLen={arrayLen}/>
     </>
   );
 }

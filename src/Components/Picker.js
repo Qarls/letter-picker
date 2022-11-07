@@ -3,25 +3,40 @@ import Letter from './Letter'
 let intervalId;
 let elementIndex = 0;
 
-const Picker = ({style, letters}) => {
+
+const Picker = ({style, elementArray, arrayLen}) => {
+  console.log(elementArray)
+  const [usedElements, updateUsedElements] = useState([])
+  const [speed, setSpeed] = useState(199)
   const [isRunning, toggleRunning] = useState(true);
   const [currentElement, setCurrentElement] = useState(() => {
     return 0
   });  
+  
 
-  const [speed, setSpeed] = useState(199)
 
   function handleChange(event) {
     setSpeed(event.target.value)
   }
 
+  function checkAvailable(index) {
+    if (index) return true;
+    return false;
+  }
+
   const nextLetter = () => {
-    elementIndex++
-    if (elementIndex >= letters.length) {
+    
+    if (elementIndex >= arrayLen) {
       elementIndex = 0 
     }
-    setCurrentElement(elementIndex)
-    return elementIndex
+    elementIndex++
+    if (checkAvailable(elementArray[elementIndex][1])) {
+      setCurrentElement(elementIndex)
+      return elementIndex
+    }
+    else {
+      nextLetter();
+    }
   }
 
   function handleRunClick() {
@@ -29,16 +44,24 @@ const Picker = ({style, letters}) => {
     if (isRunning) {
       intervalId = setInterval(nextLetter, speed)    
     }
-    else clearInterval(intervalId)
-    return nextLetter()
+    else {
+      fetch(currentElement) 
+        .then(clearInterval(intervalId))
+      if (checkAvailable(elementIndex)) {
+        updateUsedElements(prevElements => [...prevElements, elementArray[elementIndex][0]])
+        elementArray[elementIndex][1] = false;
+        console.log(usedElements)
+      }
+  }
   }
 
   return (
     <div style={style}>
-      <label for='speed'>Speed: </label>
+      <label htmlFor='speed'>Speed: </label>
       <input type='number' id='speed' onChange={handleChange} ></input>
-      <button onClick={handleRunClick}>{isRunning ? 'Start' : 'Stop'}</button>
-      <Letter currentElement={currentElement} letters={letters} />
+      <button onClick={handleRunClick} className={isRunning ? 'startbutton' : 'stopbutton'}>{isRunning ? 'Start' : 'Stop'}</button>
+      <Letter currentElement={currentElement - 1} elementArray={elementArray} />
+      <span>{usedElements}</span>
     </div>
   )
 }
