@@ -3,6 +3,7 @@ import Picker from './Components/Picker';
 
 const BASE_ALPHABET = {
   alphabet: [
+  '',
   'A',
   'B',
   'C',

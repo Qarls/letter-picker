@@ -26,7 +26,7 @@ const Picker = ({style, elementArray, arrayLen}) => {
 
   const nextLetter = () => {
     
-    if (elementIndex >= arrayLen) {
+    if (elementIndex >= arrayLen - 1) {
       elementIndex = 0 
     }
     elementIndex++

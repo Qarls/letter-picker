@@ -4,10 +4,10 @@ import './Letter.css';
 const Letter = ({elementArray, currentElement}) => {
 function displayElement() {
   try {
-    return elementArray[currentElement+1]
+    return elementArray[currentElement+1][0]
   }
   catch {
-    return elementArray[0]
+    return elementArray[0][0]
   }
 }
 return( 
