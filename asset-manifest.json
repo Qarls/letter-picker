@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/letter-picker/static/css/main.cc10f56e.css",
+    "main.js": "/letter-picker/static/js/main.e5b3bdfb.js",
+    "static/js/787.7f6737d0.chunk.js": "/letter-picker/static/js/787.7f6737d0.chunk.js",
+    "index.html": "/letter-picker/index.html",
+    "main.cc10f56e.css.map": "/letter-picker/static/css/main.cc10f56e.css.map",
+    "main.e5b3bdfb.js.map": "/letter-picker/static/js/main.e5b3bdfb.js.map",
+    "787.7f6737d0.chunk.js.map": "/letter-picker/static/js/787.7f6737d0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc10f56e.css",
+    "static/js/main.e5b3bdfb.js"
+  ]
+}
